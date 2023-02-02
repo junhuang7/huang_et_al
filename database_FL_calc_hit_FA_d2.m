@@ -1,4 +1,4 @@
-clear TraceTrl_RT lTraceTrl_RT hit miss CR FA EL 
+clear TraceTrl_RT lTraceTrl_RT hit miss CR FA EL RT RT3
 clear TraceTrl_RTh TraceTrl_RTm TraceTrl_RTc TraceTrl_RTf
 clear lTraceTrl_RTh lTraceTrl_RTm lTraceTrl_RTc lTraceTrl_RTf
 clear meandFF0_RTh meandFF0_RTf lMeanTraceTrl_RTh lMeanTraceTrl_RTf
@@ -15,39 +15,77 @@ baseend_RT=1;
 timevec=-prestart:1/SR:poststart;
 timevec1 = 0:(1/SR):((length(FL_task.dFF0{j})/SR)-1/SR);
 timevec_RT=-prestart_RT:1/SR:poststart_RT;
-%% calculate signal
+
+%% calculate signal_lick_aligned
 % preallocation of array, which saves 0.2 seconds in one session
-TraceTrl_RT = zeros(length(FL_task.Trial_Onsets{j}),6*SR+1); 
-lTraceTrl_RT = zeros(length(FL_task.Trial_Onsets{j}),6*SR+1);
+TraceTrl = zeros(length(FL_task.Trial_Onsets{j}),6*SR+1); 
+lTraceTrl = zeros(length(FL_task.Trial_Onsets{j}),6*SR+1);
 
 for i=1:length(FL_task.Trial_Onsets{j})-1;
-    TraceTrl_RT(i,:)=FL_task.dFF0{j}(FL_task.Trial_Onsets{j}(i)*SR-prestart_RT*SR+FL_task.RT{j}(i):FL_task.Trial_Onsets{j}(i)*SR+poststart_RT*SR+FL_task.RT{j}(i));
+    TraceTrl(i,:)=FL_task.dFF0{j}(FL_task.Trial_Onsets{j}(i)*SR-prestart*SR:FL_task.Trial_Onsets{j}(i)*SR+poststart*SR);
 end
 
 for i=1:length(FL_task.Trial_Onsets{j})-1;
-    lTraceTrl_RT(i,:)=FL_task.lick{j}(FL_task.Trial_Onsets{j}(i)*SR-prestart_RT*SR+FL_task.RT{j}(i):FL_task.Trial_Onsets{j}(i)*SR+poststart_RT*SR+FL_task.RT{j}(i));
+    lTraceTrl(i,:)=FL_task.lick{j}(FL_task.Trial_Onsets{j}(i)*SR-prestart*SR:FL_task.Trial_Onsets{j}(i)*SR+poststart*SR);
 end
 
 %% define trial type
-
 if size((FL_task.behavior_data{j}),2) ==30;
     hit=find(FL_task.behavior_data{j}(:,6)==1&FL_task.behavior_data{j}(:,8)==1&FL_task.behavior_data{j}(:,16)==0);
     miss=find(FL_task.behavior_data{j}(:,6)==1&FL_task.behavior_data{j}(:,8)==0&FL_task.behavior_data{j}(:,16)==0);
     CR=find(FL_task.behavior_data{j}(:,6)==0&FL_task.behavior_data{j}(:,8)==0&FL_task.behavior_data{j}(:,16)==0);
     FA=find(FL_task.behavior_data{j}(:,6)==0&FL_task.behavior_data{j}(:,8)==1&FL_task.behavior_data{j}(:,16)==0);
     EL=find(FL_task.behavior_data{j}(:,16)==1);
-elseif size((FL_task.behavior_data{j}),2) ==18;
-        hit=find(FL_task.behavior_data{j}(:,6)==1&FL_task.behavior_data{j}(:,9)==1);
-        miss=find(FL_task.behavior_data{j}(:,6)==1&FL_task.behavior_data{j}(:,9)==0);
-        CR=find(FL_task.behavior_data{j}(:,6)==0&FL_task.behavior_data{j}(:,9)==0);
-        FA=find(FL_task.behavior_data{j}(:,6)==0&FL_task.behavior_data{j}(:,9)==1);
-        EL=find(isnan(FL_task.behavior_data{j}(:,9)));
+    for i=1:length(lTraceTrl(:,1))
+        V{i,1}=find(lTraceTrl(i,1*SR:4*SR)>0.2);
+        if ~isempty(V{i,1})
+            V{i,2}=V{i,1}(1);
+            RT3(i)=V{i,2};
+        else
+            V{i,2}=0;
+            RT3(i)=V{i,2};
+        end
+        i=i+1;
+    end
+    RT=round(RT3)+1*SR;
+elseif size((FL_task.behavior_data{j}),2) ==18
+    hit=find(FL_task.behavior_data{j}(:,6)==1&FL_task.behavior_data{j}(:,9)==1);
+    miss=find(FL_task.behavior_data{j}(:,6)==1&FL_task.behavior_data{j}(:,9)==0);
+    CR=find(FL_task.behavior_data{j}(:,6)==0&FL_task.behavior_data{j}(:,9)==0);
+    FA=find(FL_task.behavior_data{j}(:,6)==0&FL_task.behavior_data{j}(:,9)==1);
+    EL=find(isnan(FL_task.behavior_data{j}(:,9)));
+    for i=1:length(lTraceTrl(:,1))
+        V{i,1}=find(lTraceTrl(i,1*SR:5*SR)>0.2);
+        if ~isempty(V{i,1})
+            V{i,2}=V{i,1}(1);
+            RT3(i)=V{i,2};
+        else
+            V{i,2}=0;
+            RT3(i)=V{i,2};
+        end
+        i=i+1;
+    end
+    RT=round(RT3)+2*SR;
 end
+RT(isnan(RT))=1*SR;
 
 hitrate = (length(hit))/(length(hit)+length(miss));
 FArate = length(FA)/(length(FA)+length(CR));
 stimNO = length(hit)+length(miss);
 dprime = norminv(hitrate)-norminv(FArate);
+
+%% calculate signal_lick_aligned
+% preallocation of array, which saves 0.2 seconds in one session
+TraceTrl_RT = zeros(length(FL_task.Trial_Onsets{j}),6*SR+1); 
+lTraceTrl_RT = zeros(length(FL_task.Trial_Onsets{j}),6*SR+1);
+
+for i=1:length(FL_task.Trial_Onsets{j})-1;
+    TraceTrl_RT(i,:)=FL_task.dFF0{j}(FL_task.Trial_Onsets{j}(i)*SR-prestart_RT*SR+RT(i):FL_task.Trial_Onsets{j}(i)*SR+poststart_RT*SR+RT(i));
+end
+
+for i=1:length(FL_task.Trial_Onsets{j})-1;
+    lTraceTrl_RT(i,:)=FL_task.lick{j}(FL_task.Trial_Onsets{j}(i)*SR-prestart_RT*SR+RT(i):FL_task.Trial_Onsets{j}(i)*SR+poststart_RT*SR+RT(i));
+end
 
 %% calculate FP traces
 TraceTrl_RTh=TraceTrl_RT(hit(hit<length(TraceTrl_RT(:,1))),:);
