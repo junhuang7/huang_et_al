@@ -26,7 +26,7 @@ lTraceTrl_RTh_tail_all=zeros(length(FL_task.mice_NO),6*SR+1);
 lTraceTrl_RTf_tail_all=zeros(length(FL_task.mice_NO),6*SR+1);
 
 for j = 1:length(FL_task.mice_NO)
-    database_FL_calc_hit_FA_d2
+    database_FL_calc
     meandFF0_RTh_all(j,:)=meandFF0_RTh;
     meandFF0_RTf_all(j,:)=meandFF0_RTf;
     lMeanTraceTrl_RTh_all(j,:)=lMeanTraceTrl_RTh;
@@ -90,7 +90,7 @@ ylabel('\DeltaF/F_0','FontSize',20)
 title(['Day2 (n = 41 mice)'],'FontSize',20)
 h=figure(1)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_7_FL_hit_FA_d2_dLight', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_7_FL_R+_R-_d2_dLight', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
 % close
 
 figure(2)
@@ -117,7 +117,7 @@ ylabel('Lick (A.U.)','FontSize',20)
 title(['Day2 (n = 41 mice)'],'FontSize',20)
 h=figure(2)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_7_FL_hit_FA_d2_lick', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_7_FL_R+_R-_d2_lick', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
 % close
 
 %% fig3_9 sucrose reward vs. water reward
@@ -161,7 +161,7 @@ ylabel('\DeltaF/F_0','FontSize',20)
 title(['Sucrose (n=33)'],'FontSize',20)
 h=figure(3)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_9_FL_hit_FA_d2_dLight_sucrose', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_9_FL_R+_R-_d2_dLight_sucrose', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
 
 figure(4)
 boundedline(timevec_RT,meandFF0_RTh_d2_water,stddFF0_RTh_d2_water./sqrt(8),'b')
@@ -187,7 +187,7 @@ ylabel('\DeltaF/F_0','FontSize',20)
 title(['Water (n=8)'],'FontSize',20)
 h=figure(4)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_9_FL_hit_FA_d2_dLight_water', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_9_FL_R+_R-_d2_dLight_water', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
 
 %% fig3_11 first 30 vs. last 30 trials
 
@@ -237,7 +237,7 @@ ylabel('\DeltaF/F_0','FontSize',20)
 title(['R+ trials (n = 41 mice)'],'FontSize',20)
 h=figure(5)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_11_FL_hit_FA_d2_dLight_R+30', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_11_FL_R+_R-_d2_dLight_R+30', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
 
 figure(6)
 boundedline(timevec_RT,meandFF0_RTf_d2_head,stddFF0_RTf_d2_head./sqrt(length(FL_task.mice_NO)/2),'b')
@@ -263,7 +263,7 @@ ylabel('\DeltaF/F_0','FontSize',20)
 title(['R- trials (n = 41 mice)'],'FontSize',20)
 h=figure(6)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_11_FL_hit_FA_d2_dLight_R-30', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_11_FL_R+_R-_d2_dLight_R-30', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
 
 
 
@@ -291,7 +291,7 @@ ylabel('Lick (A.U.)','FontSize',20)
 title(['R+ trials (n = 41 mice)'],'FontSize',20)
 h=figure(7)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_11_FL_hit_FA_d2_lick_R+30', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_11_FL_R+_R-_d2_lick_R+30', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
 
 figure(8)
 boundedline(timevec_RT,lTraceTrl_RTf_d2_head,stdlTraceTrl_RTf_d2_head./sqrt(length(FL_task.mice_NO)/2),'b')
@@ -317,7 +317,7 @@ ylabel('Lick (A.U.)','FontSize',20)
 title(['R- trials (n = 41 mice)'],'FontSize',20)
 h=figure(8)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_11_FL_hit_FA_d2_lick_R-30', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_11_FL_R+_R-_d2_lick_R-30', '-dpdf', '-r300'); %<-Save as PNG with 300 DPI
 
 
 
