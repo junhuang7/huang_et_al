@@ -83,6 +83,39 @@ for idx_valve = 1:numel(RO_task.Valve_Onsets{j})
 end
 hitR0 = setdiff(hit,hitR1);
 
+%% correct behavior file in the database for the Hit (R+) and Hit (RO) trials
+if size((RO_task.behavior_data{j}),2) ==30
+    false_positive_reward_index = find(RO_task.behavior_data{j}(hitR1,15) == 0);
+    false_negative_reward_index_RO = find(RO_task.behavior_data{j}(hitR0,15) == 1);
+    false_negative_reward_index_miss = find(RO_task.behavior_data{j}(miss,15) == 1);
+    false_negative_reward_index_FA = find(RO_task.behavior_data{j}(FA,15) == 1);
+    false_negative_reward_index_CR = find(RO_task.behavior_data{j}(CR,15) == 1);
+end
+% Check for hitR1(false_positive_reward_index)
+if ~isempty(hitR1) && ~isempty(false_positive_reward_index) && max(false_positive_reward_index) <= length(hitR1)
+    RO_task.behavior_data{j}(hitR1(false_positive_reward_index),15) = 1;
+end
+
+% Check for hitR0(false_negative_reward_index)
+if ~isempty(hitR0) && ~isempty(false_negative_reward_index_RO) && max(false_negative_reward_index_RO) <= length(hitR0)
+    RO_task.behavior_data{j}(hitR0(false_negative_reward_index_RO),15) = 0;
+end
+
+% Check for miss(false_negative_reward_index_miss)
+if ~isempty(miss) && ~isempty(false_negative_reward_index_miss) && max(false_negative_reward_index_miss) <= length(miss)
+    RO_task.behavior_data{j}(miss(false_negative_reward_index_miss),15) = 0;
+end
+
+% Check for FA(false_negative_reward_index_FA)
+if ~isempty(FA) && ~isempty(false_negative_reward_index_FA) && max(false_negative_reward_index_FA) <= length(FA)
+    RO_task.behavior_data{j}(FA(false_negative_reward_index_FA),15) = 0;
+end
+
+% Check for CR(false_negative_reward_index_CR)
+if ~isempty(CR) && ~isempty(false_negative_reward_index_CR) && max(false_negative_reward_index_CR) <= length(CR)
+    RO_task.behavior_data{j}(CR(false_negative_reward_index_CR),15) = 0;
+end
+
 %% whisker-aligned dLight traces
 TraceTrlhR1=TraceTrl(hitR1(hitR1<length(TraceTrl(:,1))),:);
 TraceTrlhR0=TraceTrl(hitR0(hitR0<length(TraceTrl(:,1))),:);
