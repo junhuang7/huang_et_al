@@ -174,7 +174,7 @@ print('fig3_30_RO_hit_miss_d1_lick', '-dpng', '-r300'); %<-Save as PNG with 300 
 % close
 
 
-%% Hit vs. FA on Day 1
+%% Hit vs. R0 on Day 1
 
 %dLight trace calculations
 meandFF0_RThR1_d1=mean(meandFF0_RThR1_all(1:length(RO_task.mice_NO),:),1);
@@ -222,7 +222,7 @@ ylabel('\DeltaF/F_0','FontSize',20)
 title(['Day1 (n = 29 mice)'],'FontSize',20)
 h=figure(3)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_30_RO_hit_FA_d1_dLight', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_30_RO_hit_d1_dLight', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
 % close
 
 figure(4)
@@ -253,7 +253,7 @@ ylabel('Lick (A.U.)','FontSize',20)
 title(['Day1 (n = 29 mice)'],'FontSize',20)
 h=figure(4)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_30_RO_hit_FA_d1_lick', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_30_RO_hit_d1_lick', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
 % close
 
 
@@ -305,7 +305,7 @@ ylabel('\DeltaF/F_0','FontSize',20)
 title(['Hit R1 trials (n = 29 mice)'],'FontSize',20)
 h=figure(5)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_31_RO_hit_R1_d1_dLight_Hit30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_31_RO_hit_R1_d1_dLight_30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
 
 figure(6)
 boundedline(timevec_RT,meandFF0hR0_d1_head,stddFF0hR0_d1_head./sqrt(length(RO_task.mice_NO)),'b')
@@ -331,7 +331,7 @@ ylabel('\DeltaF/F_0','FontSize',20)
 title(['Hit R0 trials (n = 29 mice)'],'FontSize',20)
 h=figure(6)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_31_R0_hit_R0_d1_dLight_Miss30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_31_R0_hit_R0_d1_dLight_30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
 
 
 figure(7)
@@ -358,7 +358,7 @@ ylabel('Lick (A.U.)','FontSize',20)
 title(['Hit R1 trials (n = 29 mice)'],'FontSize',20)
 h=figure(7)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_31_RO_hit_R1_d1_lick_Hit30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_31_RO_hit_R1_d1_lick_30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
 
 figure(8)
 boundedline(timevec_RT,lTraceTrlhR0_d1_head,stdlTraceTrlhR0_d1_head./sqrt(length(RO_task.mice_NO)),'b')
@@ -384,7 +384,7 @@ ylabel('Lick (A.U.)','FontSize',20)
 title(['Hit R0 trials (n = 29 mice)'],'FontSize',20)
 h=figure(8)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
-print('fig3_31_RO_hit_R0_d1_lick_Miss30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
+print('fig3_31_RO_hit_R0_d1_lick_30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
 
 
 %% Hit vs. FA, First vs. Last 30 trials
