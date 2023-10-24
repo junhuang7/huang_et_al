@@ -78,19 +78,19 @@ meandFF0=mean(dFF0,1);
 
 MeanTraceTrlh=mean(TraceTrlh,1);
 dFF0h=TraceTrlh-mean(TraceTrlh(:,basestart*SR:baseend*SR),2);
-meandFF0h=nanmean(dFF0h,1);
+meandFF0h=mean(dFF0h,1);
 
 MeanTraceTrlm=mean(TraceTrlm,1);
 dFF0m=TraceTrlm-mean(TraceTrlm(:,basestart*SR:baseend*SR),2);
-meandFF0m=nanmean(dFF0m,1);
+meandFF0m=mean(dFF0m,1);
 
 MeanTraceTrlc=mean(TraceTrlc,1);
 dFF0c=TraceTrlc-mean(TraceTrlc(:,basestart*SR:baseend*SR),2);
-meandFF0c=nanmean(dFF0c,1);
+meandFF0c=mean(dFF0c,1);
 
 MeanTraceTrlf=mean(TraceTrlf,1);
 dFF0f=TraceTrlf-mean(TraceTrlf(:,basestart*SR:baseend*SR),2);
-meandFF0f=nanmean(dFF0f,1);
+meandFF0f=mean(dFF0f,1);
 %% lick-aligned dLight traces
 TraceTrl_RTh=TraceTrl_RT(hit(hit<length(TraceTrl_RT(:,1))),:);
 TraceTrl_RTm=TraceTrl_RT(miss(miss<length(TraceTrl_RT(:,1))),:);
@@ -103,19 +103,19 @@ meandFF0_RT=mean(dFF0_RT,1);
 
 MeanTraceTrl_RTh=mean(TraceTrl_RTh,1);
 dFF0_RTh=TraceTrl_RTh-mean(TraceTrl_RTh(:,basestart*SR:baseend*SR),2);
-meandFF0_RTh=nanmean(dFF0_RTh,1);
+meandFF0_RTh=mean(dFF0_RTh,1);
 
 MeanTraceTrl_RTm=mean(TraceTrl_RTm,1);
 dFF0_RTm=TraceTrl_RTm-mean(TraceTrl_RTm(:,basestart*SR:baseend*SR),2);
-meandFF0_RTm=nanmean(dFF0_RTm,1);
+meandFF0_RTm=mean(dFF0_RTm,1);
 
 MeanTraceTrl_RTc=mean(TraceTrl_RTc,1);
 dFF0_RTc=TraceTrl_RTc-mean(TraceTrl_RTc(:,basestart*SR:baseend*SR),2);
-meandFF0_RTc=nanmean(dFF0_RTc,1);
+meandFF0_RTc=mean(dFF0_RTc,1);
 
 MeanTraceTrl_RTf=mean(TraceTrl_RTf,1);
 dFF0_RTf=TraceTrl_RTf-mean(TraceTrl_RTf(:,basestart*SR:baseend*SR),2);
-meandFF0_RTf=nanmean(dFF0_RTf,1);
+meandFF0_RTf=mean(dFF0_RTf,1);
 
 %% calculate licking traces
 lTraceTrlh=lTraceTrl(hit(hit<length(TraceTrl(:,1))),:);

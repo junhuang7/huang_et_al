@@ -66,6 +66,11 @@ for j = 1:length(WD_task.mice_NO)
     lTraceTrl_RTh_tail_all(j,:)=lTraceTrl_RTh_tail;
     lTraceTrl_RTf_head_all(j,:)=lTraceTrl_RTf_head;
     lTraceTrl_RTf_tail_all(j,:)=lTraceTrl_RTf_tail;
+    hitNO(j,:)=length(hit);
+    missNO(j,:)=length(miss);
+    FANO(j,:)=length(FA);
+    CRNO(j,:)=length(CR);
+    f_std_all(j,:)=f_std;
 end
 
 %dLight trace calculations

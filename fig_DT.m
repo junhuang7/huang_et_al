@@ -6,6 +6,7 @@ cd(fileparts(matlab.desktop.editor.getActiveFilename))
 addpath ([(fileparts(matlab.desktop.editor.getActiveFilename)) '\boundedline'])
 addpath ([(fileparts(matlab.desktop.editor.getActiveFilename)) '\Inpaint_nans'])
 load('DT_task_data_struct_single.mat')%load database file
+%load('data3_delayed_reward_updated.mat')%load database file
 
 %% fig3_27 plotting of hit vs. miss trials in DT day 1-2-3
 
@@ -121,7 +122,7 @@ xx=legend([h1 h2 h3], 'Hit', 'Miss','Whisker On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('\DeltaF/F_0','FontSize',20)
-title(['Day1 (n = 41 mice)'],'FontSize',20)
+title(['Day1 (n = 29 mice)'],'FontSize',20)
 h=figure(1)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_27_DT_hit_miss_d1_dLight', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -148,7 +149,7 @@ xx=legend([h1 h2 h3], 'Hit', 'Miss','Whisker On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('Lick (A.U.)','FontSize',20)
-title(['Day1 (n = 41 mice)'],'FontSize',20)
+title(['Day1 (n = 29 mice)'],'FontSize',20)
 h=figure(2)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_27_DT_hit_miss_d1_lick', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -175,7 +176,7 @@ xx=legend([h1 h2 h3], 'Hit', 'Miss','Whisker On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('\DeltaF/F_0','FontSize',20)
-title(['Day2 (n = 41 mice)'],'FontSize',20)
+title(['Day2 (n = 29 mice)'],'FontSize',20)
 h=figure(3)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_27_DT_hit_miss_d2_dLight', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -202,7 +203,7 @@ xx=legend([h1 h2 h3], 'Hit', 'Miss','Whisker On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('Lick (A.U.)','FontSize',20)
-title(['Day2 (n = 41 mice)'],'FontSize',20)
+title(['Day2 (n = 29 mice)'],'FontSize',20)
 h=figure(4)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_27_DT_hit_miss_d2_lick', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -229,7 +230,7 @@ xx=legend([h1 h2 h3], 'Hit', 'Miss','Whisker On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('\DeltaF/F_0','FontSize',20)
-title(['Day3 (n = 41 mice)'],'FontSize',20)
+title(['Day3 (n = 29 mice)'],'FontSize',20)
 h=figure(5)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_27_DT_hit_miss_d3_dLight', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -256,7 +257,7 @@ xx=legend([h1 h2 h3], 'Hit', 'Miss','Whisker On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('Lick (A.U.)','FontSize',20)
-title(['Day3 (n = 41 mice)'],'FontSize',20)
+title(['Day3 (n = 29 mice)'],'FontSize',20)
 h=figure(6)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_27_DT_hit_miss_d3_lick', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -317,7 +318,7 @@ xx=legend([h1 h2 h3], 'Hit', 'FA','Lick On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('\DeltaF/F_0','FontSize',20)
-title(['Day1 (n = 41 mice)'],'FontSize',20)
+title(['Day1 (n = 29 mice)'],'FontSize',20)
 h=figure(7)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_28_DT_Hit_FA_d1_dLight', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -344,7 +345,7 @@ xx=legend([h1 h2 h3], 'Hit', 'FA','Lick On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('Lick (A.U.)','FontSize',20)
-title(['Day1 (n = 41 mice)'],'FontSize',20)
+title(['Day1 (n = 29 mice)'],'FontSize',20)
 h=figure(8)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_28_DT_Hit_FA_d1_lick', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -371,7 +372,7 @@ xx=legend([h1 h2 h3], 'Hit', 'FA','Lick On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('\DeltaF/F_0','FontSize',20)
-title(['Day2 (n = 41 mice)'],'FontSize',20)
+title(['Day2 (n = 29 mice)'],'FontSize',20)
 h=figure(9)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_28_DT_Hit_FA_d2_dLight', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -398,7 +399,7 @@ xx=legend([h1 h2 h3], 'Hit', 'FA','Lick On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('Lick (A.U.)','FontSize',20)
-title(['Day2 (n = 41 mice)'],'FontSize',20)
+title(['Day2 (n = 29 mice)'],'FontSize',20)
 h=figure(10)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_28_DT_Hit_FA_d2_lick', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -426,7 +427,7 @@ xx=legend([h1 h2 h3], 'Hit', 'FA','Lick On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('\DeltaF/F_0','FontSize',20)
-title(['Day3 (n = 41 mice)'],'FontSize',20)
+title(['Day3 (n = 29 mice)'],'FontSize',20)
 h=figure(11)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_28_DT_Hit_FA_d3_dLight', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -453,7 +454,7 @@ xx=legend([h1 h2 h3], 'Hit', 'FA','Lick On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('Lick (A.U.)','FontSize',20)
-title(['Day3 (n = 41 mice)'],'FontSize',20)
+title(['Day3 (n = 29 mice)'],'FontSize',20)
 h=figure(12)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_28_DT_Hit_FA_d3_lick', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -503,7 +504,7 @@ xx=legend([h1 h2 h3], 'First 30 trials', 'Last 30 trials','Whisker On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('\DeltaF/F_0','FontSize',20)
-title(['Hit trials (n = 41 mice)'],'FontSize',20)
+title(['Hit trials (n = 29 mice)'],'FontSize',20)
 h=figure(13)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_29_DT_hit_Miss_d3_dLight_Hit30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -529,7 +530,7 @@ xx=legend([h1 h2 h3], 'First 30 trials', 'Last 30 trials','Whisker On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('\DeltaF/F_0','FontSize',20)
-title(['Miss trials (n = 41 mice)'],'FontSize',20)
+title(['Miss trials (n = 29 mice)'],'FontSize',20)
 h=figure(14)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_29_DT_hit_Miss_d3_dLight_Miss30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -556,7 +557,7 @@ xx=legend([h1 h2 h3], 'First 30 trials', 'Last 30 trials','Whisker On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('Lick (A.U.)','FontSize',20)
-title(['Hit trials (n = 41 mice)'],'FontSize',20)
+title(['Hit trials (n = 29 mice)'],'FontSize',20)
 h=figure(15)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_29_DT_hit_Miss_d3_lick_Hit30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -582,7 +583,7 @@ xx=legend([h1 h2 h3], 'First 30 trials', 'Last 30 trials','Whisker On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('Lick (A.U.)','FontSize',20)
-title(['Miss trials (n = 41 mice)'],'FontSize',20)
+title(['Miss trials (n = 29 mice)'],'FontSize',20)
 h=figure(16)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_29_DT_hit_Miss_d3_lick_Miss30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -630,7 +631,7 @@ xx=legend([h1 h2 h3], 'First 30 trials', 'Last 30 trials','Lick On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('\DeltaF/F_0','FontSize',20)
-title(['Hit trials (n = 41 mice)'],'FontSize',20)
+title(['Hit trials (n = 29 mice)'],'FontSize',20)
 h=figure(17)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_29_DT_hit_FA_d3_dLight_Hit30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -656,7 +657,7 @@ xx=legend([h1 h2 h3], 'First 30 trials', 'Last 30 trials','Lick On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('\DeltaF/F_0','FontSize',20)
-title(['FA trials (n = 41 mice)'],'FontSize',20)
+title(['FA trials (n = 29 mice)'],'FontSize',20)
 h=figure(18)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_29_DT_hit_FA_d3_dLight_FA30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -683,7 +684,7 @@ xx=legend([h1 h2 h3], 'First 30 trials', 'Last 30 trials','Lick On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('Lick (A.U.)','FontSize',20)
-title(['Hit trials (n = 41 mice)'],'FontSize',20)
+title(['Hit trials (n = 29 mice)'],'FontSize',20)
 h=figure(19)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_29_DT_hit_FA_d3_lick_Hit30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI
@@ -709,7 +710,7 @@ xx=legend([h1 h2 h3], 'First 30 trials', 'Last 30 trials','Lick On');
 set(xx,'FontSize',12);
 xlabel('time (sec)','FontSize',20)
 ylabel('Lick (A.U.)','FontSize',20)
-title(['FA trials (n = 41 mice)'],'FontSize',20)
+title(['FA trials (n = 29 mice)'],'FontSize',20)
 h=figure(20)
 set(h,'PaperSize',[8 6]); %set the paper size to what you want  
 print('fig3_29_DT_hit_FA_d3_lick_FA30', '-dpng', '-r300'); %<-Save as PNG with 300 DPI

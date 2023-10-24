@@ -17,7 +17,7 @@ timevec1 = 0:(1/SR):((length(FL_task.dFF0{j})/SR)-1/SR);
 timevec_RT=-prestart_RT:1/SR:poststart_RT;
 %% calculate signal
 % preallocation of array, which saves 0.2 seconds in one session
-TraceTrl_RT = zeros(length(FL_task.Trial_Onsets{j}),6*SR+1); 
+TraceTrl_RT = zeros(length(FL_task.Trial_Onsets{j}),6*SR+1);
 lTraceTrl_RT = zeros(length(FL_task.Trial_Onsets{j}),6*SR+1);
 
 for i=1:length(FL_task.Trial_Onsets{j})-1;
